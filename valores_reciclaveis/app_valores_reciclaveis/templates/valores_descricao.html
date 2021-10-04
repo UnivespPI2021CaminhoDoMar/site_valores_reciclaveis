@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		<div class="container-fluid">
+			<a class="navbar-brand text-white" href="#"><strong><i class="fas fa-recycle"></i> Amlurb</strong></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="app-amlurb-home.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="app-amlurb-result.html">Dados</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+    <section>
+		<!--<div class="container pt-4">
+			<div class="row">
+				<div class="form-group col-12">
+					<label for="data-consulta" class="form-label text-success">CONSULTA DATA</label>
+					<div class="input-group">
+					  <div class="input-group-text input-group-addoninput-group-text-lg bg-success text-white mb-3 border border-success"><i class="fas fa-calendar-check"></i></div>
+					  <input type="text" class="form-control date form-control-lg mb-3 border border-success text-secondary" id="data-consulta" placeholder="Consulte uma data">
+					</div>
+				</div>
+			</div>
+		-->
+		
+			<div class="row">
+				<div class="col-12">
+					<div class="table-responsive mb-0" style="border-radius: 0.5rem;">
+						<table class="table align-middle table-striped table-bordered table-hover align-items-center">
+							<thead class="table-light align-middle text-center">
+								<tr>
+									<th>CATEGORIA</th>
+									<th>QTDE DE MATERIAL COMERCIALIZADO (Kg)</th>
+									<th>VALOR (R$)</th>
+									<th>ZONA (leste, sul, etc)</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% if app_valores_reciclaveis  %}
+                				{% for prestacao in app_valores_reciclaveis %}
+								<tr>
+									<td>{{prestacao.categoria}}</td>
+									<td>{{prestacao.qte_mat_comercializado}}</td>
+									<td>{{prestacao.valor}}</td>
+									<td>{{prestacao.zona}}</td>
+								</tr>
+								{% endfor %}
+                				{% else  %}
+               					{% endif  %}
+								<tr>
+									<td>#</td>
+									<td>#</td>
+									<td>#</td>
+									<td>#</td>
+								</tr>
+								<tr>
+									<td>#</td>
+									<td>#</td>
+									<td>#</td>
+									<td>#</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+{% endblock %}
